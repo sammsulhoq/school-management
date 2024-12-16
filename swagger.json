@@ -1,0 +1,345 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "School Management System API",
+    "version": "1.0.0",
+    "description": "API documentation for the School Management System"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api",
+      "description": "Local server"
+    }
+  ],
+  "paths": {
+    "/schools": {
+      "get": {
+        "summary": "Retrieve all schools",
+        "responses": {
+          "200": {
+            "description": "A list of schools",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/School"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new school",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/School"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "School created successfully"
+          }
+        }
+      }
+    },
+    "/schools/{id}": {
+      "put": {
+        "summary": "Update a school",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/School"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "School updated successfully"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a school",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "School deleted successfully"
+          }
+        }
+      }
+    },
+    "/classrooms": {
+      "get": {
+        "summary": "Retrieve all classrooms",
+        "responses": {
+          "200": {
+            "description": "A list of classrooms",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Classroom"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new classroom",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Classroom"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Classroom created successfully"
+          }
+        }
+      }
+    },
+    "/classrooms/{id}": {
+      "put": {
+        "summary": "Update a classroom",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Classroom"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Classroom updated successfully"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a classroom",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Classroom deleted successfully"
+          }
+        }
+      }
+    },
+    "/students": {
+      "get": {
+        "summary": "Retrieve all students",
+        "responses": {
+          "200": {
+            "description": "A list of students",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Student"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new student",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Student"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Student created successfully"
+          }
+        }
+      }
+    },
+    "/students/{id}": {
+      "put": {
+        "summary": "Update a student",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Student"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Student updated successfully"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a student",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Student deleted successfully"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "School": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "63f4bc8e76d2a73172d945bd"
+          },
+          "name": {
+            "type": "string",
+            "example": "Test School"
+          },
+          "address": {
+            "type": "string",
+            "example": "123 Test Address"
+          },
+          "contactEmail": {
+            "type": "string",
+            "example": "test@school.com"
+          }
+        }
+      },
+      "Classroom": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "63f4bc8e76d2a73172d945be"
+          },
+          "name": {
+            "type": "string",
+            "example": "Test Classroom"
+          },
+          "capacity": {
+            "type": "integer",
+            "example": 30
+          },
+          "school": {
+            "type": "string",
+            "example": "63f4bc8e76d2a73172d945bd"
+          }
+        }
+      },
+      "Student": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "63f4bc8e76d2a73172d945bf"
+          },
+          "firstName": {
+            "type": "string",
+            "example": "John"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "Doe"
+          },
+          "email": {
+            "type": "string",
+            "example": "john.doe@example.com"
+          },
+          "enrolledClassroom": {
+            "type": "string",
+            "example": "63f4bc8e76d2a73172d945be"
+          }
+        }
+      }
+    }
+  }
+}
